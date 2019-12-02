@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./Styles/App.css";
+import "./Styles/normalize.css";
+import "./Styles/skeleton.css";
 import Videos from "./Components/Videos";
 import Commentary from "./Components/Commentary";
 import Collection from "./Components/Collection";

@@ -14,7 +14,7 @@ export default class Videos extends React.Component {
       .get()
       .then(querySnapshot => {
         const data = querySnapshot.docs.map(doc => doc.data());
-        console.log(data);
+        //console.log(data);
         this.setState({ videos: data });
       });
   }
@@ -22,14 +22,28 @@ export default class Videos extends React.Component {
   render() {
     const { videos } = this.state;
     return (
-      <div className="row">
+      <div>
         <h2>Videos</h2>
-        {videos.map((video, index) => (
-          <div key={index}>
-            <p>{video.title}</p>
-            <p>{video.tags}</p>
-          </div>
-        ))}
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Media</th>
+              <th>Guests</th>
+              <th>Series</th>
+            </tr>
+          </thead>
+          <tbody>
+            {videos.map((video, index) => (
+              <tr key={index}>
+                <td>{video.title}</td>
+                <td>{video.mediaDiscussed}</td>
+                <td>{video.appearing}</td>
+                <td>{video.tags}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
